@@ -68,21 +68,21 @@ fun DetailsScreen(dog: Dog) {
             fontSize = 22.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(16.dp, 8.dp, 16.dp, 8.dp)
         )
         Text(
             text = "Size : ${dog.size}",
             fontSize = 22.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(16.dp, 8.dp, 16.dp, 8.dp)
         )
         Text(
             text = "Race : ${dog.race}",
             fontSize = 22.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(16.dp, 8.dp, 16.dp, 8.dp)
         )
         Spacer(modifier = Modifier.width(8.dp))
         Button(
