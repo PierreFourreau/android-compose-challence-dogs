@@ -21,6 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Dog
 import com.example.androiddevchallenge.ui.screen.list.MainActivity.Companion.EXTRA_DOG_ID
 import com.example.androiddevchallenge.ui.theme.AdoptDogTheme
@@ -42,6 +43,7 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 }
+
 
 @Composable
 fun DetailsScreen(dog: Dog) {
@@ -66,28 +68,10 @@ fun DetailsScreen(dog: Dog) {
             modifier = Modifier
                 .fillMaxWidth()
         )
-        Spacer(modifier = Modifier.width(8.dp))
-        Text(
-            text = "Shelter : ${dog.shelter}",
-            fontSize = 22.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(16.dp, 8.dp, 16.dp, 8.dp)
-        )
-        Text(
-            text = "Size : ${dog.size}",
-            fontSize = 22.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(16.dp, 8.dp, 16.dp, 8.dp)
-        )
-        Text(
-            text = "Race : ${dog.race}",
-            fontSize = 22.sp,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(16.dp, 8.dp, 16.dp, 8.dp)
-        )
+        Spacer(modifier = Modifier.width(16.dp))
+        DetailsRow(R.drawable.shelter, "Shelter : ${dog.shelter}")
+        DetailsRow(R.drawable.race, "Race : ${dog.race}")
+        DetailsRow(R.drawable.size, "Size : ${dog.size}")
         Spacer(modifier = Modifier.width(8.dp))
         Button(
             onClick = {
@@ -102,5 +86,29 @@ fun DetailsScreen(dog: Dog) {
                 fontSize = 22.sp,
             )
         }
+    }
+}
+
+@Composable
+fun DetailsRow(icon: Int, text: String) {
+    Row(
+        modifier = Modifier
+            .padding(16.dp, 8.dp, 16.dp, 8.dp)
+    ) {
+        Image(
+            painter = painterResource(icon),
+            contentDescription = null,
+            modifier = Modifier
+                .height(24.dp)
+                .width(24.dp)
+                .fillMaxWidth()
+        )
+        Text(
+            text = text,
+            fontSize = 22.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .padding(8.dp, 0.dp, 0.dp, 0.dp)
+        )
     }
 }
