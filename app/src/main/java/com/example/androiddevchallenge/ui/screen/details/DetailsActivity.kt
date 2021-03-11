@@ -5,14 +5,19 @@ import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -28,8 +33,10 @@ import com.example.androiddevchallenge.ui.theme.AdoptDogTheme
 
 
 class DetailsActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             val viewModel = viewModels<DetailsViewModel>()
 
@@ -106,9 +113,8 @@ fun DetailsRow(icon: Int, text: String) {
         Text(
             text = text,
             fontSize = 22.sp,
-            textAlign = TextAlign.Center,
             modifier = Modifier
-                .padding(8.dp, 0.dp, 0.dp, 0.dp)
+                .padding(4.dp, 0.dp, 0.dp, 0.dp)
         )
     }
 }
