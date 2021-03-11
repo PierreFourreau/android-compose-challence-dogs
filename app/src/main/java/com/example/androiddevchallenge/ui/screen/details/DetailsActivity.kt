@@ -68,7 +68,7 @@ fun DetailsScreen(dog: Dog) {
             modifier = Modifier
                 .fillMaxWidth()
         )
-        Spacer(modifier = Modifier.width(16.dp))
+        Spacer(modifier = Modifier.width(24.dp))
         DetailsRow(R.drawable.shelter, "Shelter : ${dog.shelter}")
         DetailsRow(R.drawable.race, "Race : ${dog.race}")
         DetailsRow(R.drawable.size, "Size : ${dog.size}")
