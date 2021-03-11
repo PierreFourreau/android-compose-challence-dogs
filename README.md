@@ -1,8 +1,8 @@
-# Put title of your app here
+# Android compose challenge dogs
 
 <!--- Replace <OWNER> with your Github Username and <REPOSITORY> with the name of your repository. -->
 <!--- You can find both of these in the url bar when you open your repository in github. -->
-![Workflow result](https://github.com/<OWNER>/PierreFourreau/workflows/Check/badge.svg)
+![Workflow result](https://github.com/PierreFourreau/android-compose-challenge-dogs/workflows/Check/badge.svg)
 
 
 ## :scroll: Description
@@ -14,6 +14,7 @@ List of dogs with details.
 <!--- Optionally point readers to interesting parts of your submission. -->
 <!--- What are you especially proud of? -->
 
+Learn compose.
 
 ## :camera_flash: Screenshots
 <!-- You can add more screenshots here if you like -->
