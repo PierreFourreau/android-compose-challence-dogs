@@ -46,9 +46,14 @@ import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.R
 import com.example.androiddevchallenge.data.Dog
 import com.example.androiddevchallenge.ui.screen.details.DetailsActivity
+import com.example.androiddevchallenge.ui.screen.list.MainActivity.Companion.EXTRA_DOG_ID
 import com.example.androiddevchallenge.ui.theme.AdoptDogTheme
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val EXTRA_DOG_ID = "EXTRA_DOG_ID"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -82,7 +87,13 @@ fun MyApp(dogs: List<Dog>) {
                 dogs.forEach {
                     item {
                         DogCell(it) {
-                            context.startActivity(Intent(context, DetailsActivity::class.java))
+                            context.startActivity(
+                                Intent(
+                                    context,
+                                    DetailsActivity::class.java
+                                ).apply {
+                                    putExtra(EXTRA_DOG_ID, it.id)
+                                })
                         }
                         Spacer(modifier = Modifier.height(16.dp))
                     }
@@ -147,6 +158,7 @@ fun LightPreview() {
         MyApp(
             dogs = listOf(
                 Dog(
+                    "1",
                     "Jaycee",
                     "Refuge la ferme des arches",
                     R.drawable.jaycee,
@@ -155,6 +167,7 @@ fun LightPreview() {
                     "Shiba Inu"
                 ),
                 Dog(
+                    "1",
                     "James",
                     "Refuge Le Moulin d'en Haut",
                     R.drawable.james,
@@ -163,13 +176,23 @@ fun LightPreview() {
                     "Brachet"
                 ),
                 Dog(
+                    "1",
                     "Jamie",
                     "Maison SPA",
                     R.drawable.jamie,
                     2,
                     "Small",
                     "Spaniel"
-                )
+                ),
+                Dog(
+                    "1",
+                    "James",
+                    "Refuge Le Moulin d'en Haut",
+                    R.drawable.james,
+                    5,
+                    "Large",
+                    "Brachet"
+                ),
             )
         )
     }

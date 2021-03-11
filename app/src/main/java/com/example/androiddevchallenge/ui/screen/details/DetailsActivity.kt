@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -23,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.androiddevchallenge.data.Dog
+import com.example.androiddevchallenge.ui.screen.list.MainActivity.Companion.EXTRA_DOG_ID
 import com.example.androiddevchallenge.ui.theme.AdoptDogTheme
 
 
@@ -31,6 +31,10 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val viewModel = viewModels<DetailsViewModel>()
+
+            intent.extras?.getString(EXTRA_DOG_ID)?.let { dogId ->
+                viewModel.value.initDetails(dogId)
+            }
             AdoptDogTheme {
                 val dog = viewModel.value.dog.collectAsState()
                 DetailsScreen(dog = dog.value)
